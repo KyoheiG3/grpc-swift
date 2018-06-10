@@ -42,8 +42,7 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
   @IBAction func messageReturnPressed(sender _: NSTextField) {
     if enabled {
       do {
-        try callServer(address: addressField.stringValue,
-                       host: "example.com")
+        try callServer(address: addressField.stringValue)
       } catch {
         print(error)
       }
@@ -102,7 +101,7 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
     }
   }
 
-  func prepareService(address: String, host: String) {
+  func prepareService(address: String) {
     if service != nil {
       return
     }
@@ -112,19 +111,19 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
       let certificateURL = Bundle.main.url(forResource: "ssl",
                                            withExtension: "crt")!
       let certificates = try! String(contentsOf: certificateURL)
-      service = Echo_EchoServiceClient(address: address, certificates: certificates, host: host)
+      service = Echo_EchoServiceClient(address: address, certificates: certificates)
     }
     if let service = service {
       service.host = "example.com" // sample override
-      service.metadata = Metadata([
+      service.metadata = try! Metadata([
         "x-goog-api-key": "YOUR_API_KEY",
         "x-ios-bundle-identifier": Bundle.main.bundleIdentifier!
       ])
     }
   }
 
-  func callServer(address: String, host: String) throws {
-    prepareService(address: address, host: host)
+  func callServer(address: String) throws {
+    prepareService(address: address)
     guard let service = service else {
       return
     }
@@ -197,18 +196,16 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
     guard let expandCall = expandCall else {
       return
     }
-    try expandCall.receive { response, error in
-      if let responseMessage = response {
-        self.displayMessageReceived(responseMessage.text)
-        try! self.receiveExpandMessages()
-      } else if let error = error {
-        switch error {
-        case .endOfStream:
-          self.displayMessageReceived("Done.")
-        default:
-          self.displayMessageReceived("No message received. \(error)")
+    try expandCall.receive { response in
+        switch response {
+        case .result(let responseMessage):
+            if let message = responseMessage {
+                self.displayMessageReceived(message.text)
+                try! self.receiveExpandMessages()
+            }
+        case .error(let error):
+            self.displayMessageReceived("No message received. \(error)")
         }
-      }
     }
   }
 
@@ -234,18 +231,18 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
     guard let updateCall = updateCall else {
       return
     }
-    try updateCall.receive { response, error in
-      if let responseMessage = response {
-        self.displayMessageReceived(responseMessage.text)
-        try! self.receiveUpdateMessages()
-      } else if let error = error {
-        switch error {
-        case .endOfStream:
-          self.displayMessageReceived("Done.")
-        default:
-          self.displayMessageReceived("No message received. \(error)")
+    try updateCall.receive { response in
+        switch response {
+        case .result(let responseMessage):
+            if let message = responseMessage {
+                self.displayMessageReceived(message.text)
+                try! self.receiveUpdateMessages()
+            } else {
+                self.displayMessageReceived("Done.")
+            }
+        case .error(let error):
+            self.displayMessageReceived("No message received. \(error)")
         }
-      }
     }
   }
 
@@ -261,12 +258,13 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
     }
     if let collectCall = collectCall {
       do {
-        try collectCall.closeAndReceive { response, error in
-          if let response = response {
-            self.displayMessageReceived(response.text)
-          } else if let error = error {
-            self.displayMessageReceived("No message received. \(error)")
-          }
+        try collectCall.closeAndReceive { response in
+            switch response {
+            case .result(let responseMessage):
+                self.displayMessageReceived(responseMessage.text)
+            case .error(let error):
+                self.displayMessageReceived("No message received. \(error)")
+            }
           self.collectCall = nil
           self.nowStreaming = false
           DispatchQueue.main.async {
