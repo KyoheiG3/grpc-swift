@@ -7,23 +7,167 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C731565020DB9AE0006A9696 /* EchoBidirectionalResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731564F20DB9AE0006A9696 /* EchoBidirectionalResponder.swift */; };
+		C731566720DB9BB8006A9696 /* BidirectionalStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731566620DB9BB8006A9696 /* BidirectionalStreaming.swift */; };
+		C7A70AE420D1204100F4697C /* SwiftGRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90AD620CD2BB60004C7CA /* SwiftGRPC.framework */; };
+		C7BAE8F220D4280500B6E48B /* EchoUnaryResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE8F120D4280500B6E48B /* EchoUnaryResponder.swift */; };
+		C7BAE8F620D43E3F00B6E48B /* ServerStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE8F520D43E3F00B6E48B /* ServerStreaming.swift */; };
+		C7BAE90D20D43E8100B6E48B /* ClientStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE90C20D43E8100B6E48B /* ClientStreaming.swift */; };
+		C7BAE90F20D43EE400B6E48B /* UnaryStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE90E20D43EE400B6E48B /* UnaryStreaming.swift */; };
+		C7BAE91120D43F2700B6E48B /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE91020D43F2700B6E48B /* Stream.swift */; };
+		C7BAE91320D4E9BA00B6E48B /* Responder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE91220D4E9BA00B6E48B /* Responder.swift */; };
+		C7BAE91520D4EBCE00B6E48B /* EchoServerResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE91420D4EBCE00B6E48B /* EchoServerResponder.swift */; };
+		C7BAE91720D4EBFC00B6E48B /* EchoClientResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE91620D4EBFC00B6E48B /* EchoClientResponder.swift */; };
+		C7BAE91920D4EC3100B6E48B /* EchoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BAE91820D4EC3100B6E48B /* EchoProvider.swift */; };
+		C7D90B0120CD2BE10004C7CA /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90ACA20CD2BB60004C7CA /* BoringSSL.framework */; };
+		C7D90B0220CD2BE10004C7CA /* CgRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90ACC20CD2BB60004C7CA /* CgRPC.framework */; };
+		C7D90B5C20CD7B7E0004C7CA /* EchoUnaryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3920CD7B7E0004C7CA /* EchoUnaryRequest.swift */; };
+		C7D90B5D20CD7B7E0004C7CA /* EchoBidirectionalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3A20CD7B7E0004C7CA /* EchoBidirectionalRequest.swift */; };
+		C7D90B5E20CD7B7E0004C7CA /* EchoServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3B20CD7B7E0004C7CA /* EchoServerRequest.swift */; };
+		C7D90B5F20CD7B7E0004C7CA /* EchoClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3C20CD7B7E0004C7CA /* EchoClientRequest.swift */; };
+		C7D90B9B20CFB97B0004C7CA /* CompletionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3520CD7B7E0004C7CA /* CompletionTask.swift */; };
+		C7D90B9C20CFB97B0004C7CA /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3620CD7B7E0004C7CA /* Stream.swift */; };
+		C7D90B9D20CFB97B0004C7CA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3720CD7B7E0004C7CA /* Session.swift */; };
+		C7D90B9E20CFB9810004C7CA /* StreamingDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3D20CD7B7E0004C7CA /* StreamingDependency.swift */; };
+		C7D90B9F20CFB9970004C7CA /* MessageQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3F20CD7B7E0004C7CA /* MessageQueue.swift */; };
+		C7D90BA020CFB9970004C7CA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B4020CD7B7E0004C7CA /* Request.swift */; };
+		C7D90BA120CFB9970004C7CA /* CallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B3E20CD7B7E0004C7CA /* CallType.swift */; };
+		C7D90BA220CFB9970004C7CA /* ChannelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B4220CD7B7E0004C7CA /* ChannelType.swift */; };
+		C7D90BA320CFB9C00004C7CA /* CallMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90B4120CD7B7E0004C7CA /* CallMethod.swift */; };
+		C7D90BA520CFB9D20004C7CA /* EchoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90BA420CFB9D20004C7CA /* EchoMethod.swift */; };
+		C7D90BA620CFBA240004C7CA /* SwiftGRPCClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90B7D20CFB93D0004C7CA /* SwiftGRPCClient.framework */; };
+		C7D90BB020CFBB250004C7CA /* SwiftGRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90AD620CD2BB60004C7CA /* SwiftGRPC.framework */; };
+		C7D90BBE20CFBCE90004C7CA /* SwiftGRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90AD620CD2BB60004C7CA /* SwiftGRPC.framework */; };
+		C7D90BCE20CFBE490004C7CA /* SwiftGRPCServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90BC720CFBE480004C7CA /* SwiftGRPCServer.framework */; };
+		C7D90BCF20CFBE490004C7CA /* SwiftGRPCServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7D90BC720CFBE480004C7CA /* SwiftGRPCServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7D90BD520CFC3F40004C7CA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90BD420CFC3F40004C7CA /* Result.swift */; };
+		C7D90BD720CFC5680004C7CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7D90BD620CFC5680004C7CA /* Info.plist */; };
+		C7D90BF020D01B6B0004C7CA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90BEF20D01B6B0004C7CA /* Session.swift */; };
 		D35358201E219963007FA223 /* echo.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353581D1E219963007FA223 /* echo.grpc.swift */; };
 		D35358211E219963007FA223 /* echo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D353581E1E219963007FA223 /* echo.pb.swift */; };
-		D35358251E219980007FA223 /* EchoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35358241E219980007FA223 /* EchoProvider.swift */; };
+		D35358251E219980007FA223 /* _EchoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35358241E219980007FA223 /* _EchoProvider.swift */; };
 		D35C9FAC1D74B079000443CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C9FAB1D74B079000443CD /* AppDelegate.swift */; };
 		D35C9FAE1D74B079000443CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35C9FAD1D74B079000443CD /* Assets.xcassets */; };
 		D35C9FB11D74B079000443CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35C9FAF1D74B079000443CD /* MainMenu.xib */; };
 		D35C9FC81D74B0C1000443CD /* EchoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C9FC71D74B0C1000443CD /* EchoViewController.swift */; };
-		D36AB73D1F58DF10007D7184 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36AB7281F58DEDB007D7184 /* BoringSSL.framework */; };
-		D36AB73E1F58DF10007D7184 /* CgRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36AB7261F58DEDB007D7184 /* CgRPC.framework */; };
-		D36AB73F1F58DF10007D7184 /* Czlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36AB7241F58DEDB007D7184 /* Czlib.framework */; };
-		D36AB7401F58DF10007D7184 /* SwiftGRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36AB72A1F58DEDB007D7184 /* SwiftGRPC.framework */; };
 		D36AB7411F58DF10007D7184 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36AB7341F58DEDB007D7184 /* SwiftProtobuf.framework */; };
 		D3971E211D89132E001A0B3F /* ssl.key in Resources */ = {isa = PBXBuildFile; fileRef = D3971E201D89132E001A0B3F /* ssl.key */; };
 		D3BFE28C1D87A45D00A648D8 /* ssl.crt in Resources */ = {isa = PBXBuildFile; fileRef = D3BFE28B1D87A45D00A648D8 /* ssl.crt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C7A70AE520D1205100F4697C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftGRPC::SwiftGRPC";
+			remoteInfo = SwiftGRPC;
+		};
+		C7D90AC920CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::BoringSSL::Product";
+			remoteInfo = BoringSSL;
+		};
+		C7D90ACB20CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::CgRPC::Product";
+			remoteInfo = CgRPC;
+		};
+		C7D90ACD20CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Commander::Commander::Product";
+			remoteInfo = Commander;
+		};
+		C7D90ACF20CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::Echo::Product";
+			remoteInfo = Echo;
+		};
+		C7D90AD120CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::RootsEncoder::Product";
+			remoteInfo = RootsEncoder;
+		};
+		C7D90AD320CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::Simple::Product";
+			remoteInfo = Simple;
+		};
+		C7D90AD520CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::SwiftGRPC::Product";
+			remoteInfo = SwiftGRPC;
+		};
+		C7D90AD720CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::SwiftGRPCTests::Product";
+			remoteInfo = SwiftGRPCTests;
+		};
+		C7D90AD920CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftProtobuf::SwiftProtobuf::Product";
+			remoteInfo = SwiftProtobuf;
+		};
+		C7D90ADB20CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftProtobuf::SwiftProtobufPluginLibrary::Product";
+			remoteInfo = SwiftProtobufPluginLibrary;
+		};
+		C7D90ADD20CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftProtobuf::protoc-gen-swift::Product";
+			remoteInfo = "protoc-gen-swift";
+		};
+		C7D90ADF20CD2BB60004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftGRPC::protoc-gen-swiftgrpc::Product";
+			remoteInfo = "protoc-gen-swiftgrpc";
+		};
+		C7D90BAA20CFBB0F0004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D35C9FA01D74B079000443CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7D90B7C20CFB93D0004C7CA;
+			remoteInfo = SwiftGRPCClient;
+		};
+		C7D90BBC20CFBCA70004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftGRPC::SwiftGRPC";
+			remoteInfo = SwiftGRPC;
+		};
+		C7D90BCC20CFBE490004C7CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D35C9FA01D74B079000443CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7D90BC620CFBE480004C7CA;
+			remoteInfo = SwiftGRPCServer;
+		};
 		D315DEEB1EE8B29B007670CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D315DEDF1EE8B29A007670CE /* SwiftProtobuf.xcodeproj */;
@@ -82,11 +226,57 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C7D90BD320CFBE490004C7CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C7D90BCF20CFBE490004C7CA /* SwiftGRPCServer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C731564F20DB9AE0006A9696 /* EchoBidirectionalResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoBidirectionalResponder.swift; sourceTree = "<group>"; };
+		C731566620DB9BB8006A9696 /* BidirectionalStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalStreaming.swift; sourceTree = "<group>"; };
+		C7BAE8F120D4280500B6E48B /* EchoUnaryResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoUnaryResponder.swift; sourceTree = "<group>"; };
+		C7BAE8F520D43E3F00B6E48B /* ServerStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStreaming.swift; sourceTree = "<group>"; };
+		C7BAE90C20D43E8100B6E48B /* ClientStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientStreaming.swift; sourceTree = "<group>"; };
+		C7BAE90E20D43EE400B6E48B /* UnaryStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnaryStreaming.swift; sourceTree = "<group>"; };
+		C7BAE91020D43F2700B6E48B /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		C7BAE91220D4E9BA00B6E48B /* Responder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responder.swift; sourceTree = "<group>"; };
+		C7BAE91420D4EBCE00B6E48B /* EchoServerResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoServerResponder.swift; sourceTree = "<group>"; };
+		C7BAE91620D4EBFC00B6E48B /* EchoClientResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientResponder.swift; sourceTree = "<group>"; };
+		C7BAE91820D4EC3100B6E48B /* EchoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoProvider.swift; sourceTree = "<group>"; };
+		C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftGRPC.xcodeproj; path = ../../SwiftGRPC.xcodeproj; sourceTree = "<group>"; };
+		C7D90B3520CD7B7E0004C7CA /* CompletionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionTask.swift; sourceTree = "<group>"; };
+		C7D90B3620CD7B7E0004C7CA /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		C7D90B3720CD7B7E0004C7CA /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		C7D90B3920CD7B7E0004C7CA /* EchoUnaryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoUnaryRequest.swift; sourceTree = "<group>"; };
+		C7D90B3A20CD7B7E0004C7CA /* EchoBidirectionalRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoBidirectionalRequest.swift; sourceTree = "<group>"; };
+		C7D90B3B20CD7B7E0004C7CA /* EchoServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoServerRequest.swift; sourceTree = "<group>"; };
+		C7D90B3C20CD7B7E0004C7CA /* EchoClientRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoClientRequest.swift; sourceTree = "<group>"; };
+		C7D90B3D20CD7B7E0004C7CA /* StreamingDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamingDependency.swift; sourceTree = "<group>"; };
+		C7D90B3E20CD7B7E0004C7CA /* CallType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallType.swift; sourceTree = "<group>"; };
+		C7D90B3F20CD7B7E0004C7CA /* MessageQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageQueue.swift; sourceTree = "<group>"; };
+		C7D90B4020CD7B7E0004C7CA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		C7D90B4120CD7B7E0004C7CA /* CallMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallMethod.swift; sourceTree = "<group>"; };
+		C7D90B4220CD7B7E0004C7CA /* ChannelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelType.swift; sourceTree = "<group>"; };
+		C7D90B7D20CFB93D0004C7CA /* SwiftGRPCClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGRPCClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D90BA420CFB9D20004C7CA /* EchoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoMethod.swift; sourceTree = "<group>"; };
+		C7D90BC720CFBE480004C7CA /* SwiftGRPCServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGRPCServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D90BCA20CFBE490004C7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7D90BD420CFC3F40004C7CA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		C7D90BD620CFC5680004C7CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7D90BEF20D01B6B0004C7CA /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D315DEDF1EE8B29A007670CE /* SwiftProtobuf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftProtobuf.xcodeproj; path = "../../third_party/swift-protobuf/SwiftProtobuf.xcodeproj"; sourceTree = "<group>"; };
 		D353581D1E219963007FA223 /* echo.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = echo.grpc.swift; path = ../../Sources/Examples/Echo/Generated/echo.grpc.swift; sourceTree = "<group>"; };
 		D353581E1E219963007FA223 /* echo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = echo.pb.swift; path = ../../Sources/Examples/Echo/Generated/echo.pb.swift; sourceTree = "<group>"; };
-		D35358241E219980007FA223 /* EchoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EchoProvider.swift; path = ../../Sources/Examples/Echo/EchoProvider.swift; sourceTree = "<group>"; };
+		D35358241E219980007FA223 /* _EchoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _EchoProvider.swift; path = ../../Sources/Examples/Echo/_EchoProvider.swift; sourceTree = "<group>"; };
 		D35C9FA81D74B079000443CD /* Echo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Echo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35C9FAB1D74B079000443CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D35C9FAD1D74B079000443CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,14 +288,31 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C7D90B7920CFB93D0004C7CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7D90BB020CFBB250004C7CA /* SwiftGRPC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D90BC320CFBE480004C7CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A70AE420D1204100F4697C /* SwiftGRPC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D35C9FA51D74B079000443CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D36AB73D1F58DF10007D7184 /* BoringSSL.framework in Frameworks */,
-				D36AB73E1F58DF10007D7184 /* CgRPC.framework in Frameworks */,
-				D36AB73F1F58DF10007D7184 /* Czlib.framework in Frameworks */,
-				D36AB7401F58DF10007D7184 /* gRPC.framework in Frameworks */,
+				C7D90BA620CFBA240004C7CA /* SwiftGRPCClient.framework in Frameworks */,
+				C7D90B0120CD2BE10004C7CA /* BoringSSL.framework in Frameworks */,
+				C7D90BBE20CFBCE90004C7CA /* SwiftGRPC.framework in Frameworks */,
+				C7D90BCE20CFBE490004C7CA /* SwiftGRPCServer.framework in Frameworks */,
+				C7D90B0220CD2BE10004C7CA /* CgRPC.framework in Frameworks */,
 				D36AB7411F58DF10007D7184 /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +320,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7BAE8DB20D427F500B6E48B /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				C7BAE8F120D4280500B6E48B /* EchoUnaryResponder.swift */,
+				C7BAE91420D4EBCE00B6E48B /* EchoServerResponder.swift */,
+				C7BAE91620D4EBFC00B6E48B /* EchoClientResponder.swift */,
+				C731564F20DB9AE0006A9696 /* EchoBidirectionalResponder.swift */,
+				C7BAE91820D4EC3100B6E48B /* EchoProvider.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		C7D90AB720CD2BB50004C7CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7D90ACA20CD2BB60004C7CA /* BoringSSL.framework */,
+				C7D90ACC20CD2BB60004C7CA /* CgRPC.framework */,
+				C7D90ACE20CD2BB60004C7CA /* Commander.framework */,
+				C7D90AD020CD2BB60004C7CA /* Echo */,
+				C7D90AD220CD2BB60004C7CA /* RootsEncoder */,
+				C7D90AD420CD2BB60004C7CA /* Simple */,
+				C7D90AD620CD2BB60004C7CA /* SwiftGRPC.framework */,
+				C7D90AD820CD2BB60004C7CA /* SwiftGRPCTests.xctest */,
+				C7D90ADA20CD2BB60004C7CA /* SwiftProtobuf.framework */,
+				C7D90ADC20CD2BB60004C7CA /* SwiftProtobufPluginLibrary.framework */,
+				C7D90ADE20CD2BB60004C7CA /* protoc-gen-swift */,
+				C7D90AE020CD2BB60004C7CA /* protoc-gen-swiftgrpc */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7D90B0020CD2BE10004C7CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7D90B3420CD7B7E0004C7CA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C7D90B3920CD7B7E0004C7CA /* EchoUnaryRequest.swift */,
+				C7D90B3A20CD7B7E0004C7CA /* EchoBidirectionalRequest.swift */,
+				C7D90B3B20CD7B7E0004C7CA /* EchoServerRequest.swift */,
+				C7D90B3C20CD7B7E0004C7CA /* EchoClientRequest.swift */,
+				C7D90BA420CFB9D20004C7CA /* EchoMethod.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C7D90B7E20CFB93D0004C7CA /* SwiftGRPCClient */ = {
+			isa = PBXGroup;
+			children = (
+				C7D90B3520CD7B7E0004C7CA /* CompletionTask.swift */,
+				C7D90B4120CD7B7E0004C7CA /* CallMethod.swift */,
+				C7D90B3620CD7B7E0004C7CA /* Stream.swift */,
+				C7D90B3720CD7B7E0004C7CA /* Session.swift */,
+				C7D90B3D20CD7B7E0004C7CA /* StreamingDependency.swift */,
+				C7D90B3E20CD7B7E0004C7CA /* CallType.swift */,
+				C7D90B3F20CD7B7E0004C7CA /* MessageQueue.swift */,
+				C7D90B4020CD7B7E0004C7CA /* Request.swift */,
+				C7D90B4220CD7B7E0004C7CA /* ChannelType.swift */,
+				C7D90BD420CFC3F40004C7CA /* Result.swift */,
+				C7D90BD620CFC5680004C7CA /* Info.plist */,
+			);
+			path = SwiftGRPCClient;
+			sourceTree = "<group>";
+		};
+		C7D90BC820CFBE480004C7CA /* SwiftGRPCServer */ = {
+			isa = PBXGroup;
+			children = (
+				C7D90BEF20D01B6B0004C7CA /* Session.swift */,
+				C7D90BCA20CFBE490004C7CA /* Info.plist */,
+				C7BAE8F520D43E3F00B6E48B /* ServerStreaming.swift */,
+				C7BAE90C20D43E8100B6E48B /* ClientStreaming.swift */,
+				C7BAE90E20D43EE400B6E48B /* UnaryStreaming.swift */,
+				C731566620DB9BB8006A9696 /* BidirectionalStreaming.swift */,
+				C7BAE91020D43F2700B6E48B /* Stream.swift */,
+				C7BAE91220D4E9BA00B6E48B /* Responder.swift */,
+			);
+			path = SwiftGRPCServer;
+			sourceTree = "<group>";
+		};
 		D315DEE01EE8B29A007670CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,11 +429,15 @@
 		D35C9F9F1D74B079000443CD = {
 			isa = PBXGroup;
 			children = (
+				C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */,
 				D315DEDF1EE8B29A007670CE /* SwiftProtobuf.xcodeproj */,
 				D35C9FAA1D74B079000443CD /* Echo */,
 				D35358231E219971007FA223 /* Generated */,
-				D35358241E219980007FA223 /* EchoProvider.swift */,
+				D35358241E219980007FA223 /* _EchoProvider.swift */,
+				C7D90B7E20CFB93D0004C7CA /* SwiftGRPCClient */,
+				C7D90BC820CFBE480004C7CA /* SwiftGRPCServer */,
 				D35C9FA91D74B079000443CD /* Products */,
+				C7D90B0020CD2BE10004C7CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +445,8 @@
 			isa = PBXGroup;
 			children = (
 				D35C9FA81D74B079000443CD /* Echo.app */,
+				C7D90B7D20CFB93D0004C7CA /* SwiftGRPCClient.framework */,
+				C7D90BC720CFBE480004C7CA /* SwiftGRPCServer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +454,8 @@
 		D35C9FAA1D74B079000443CD /* Echo */ = {
 			isa = PBXGroup;
 			children = (
+				C7BAE8DB20D427F500B6E48B /* Server */,
+				C7D90B3420CD7B7E0004C7CA /* API */,
 				D35C9FAB1D74B079000443CD /* AppDelegate.swift */,
 				D35C9FAD1D74B079000443CD /* Assets.xcassets */,
 				D35C9FC71D74B0C1000443CD /* EchoViewController.swift */,
@@ -169,22 +467,64 @@
 			path = Echo;
 			sourceTree = "<group>";
 		};
-		D36AB7191F58DEDB007D7184 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D36AB7221F58DEDB007D7184 /* zlib-example */,
-				D36AB7241F58DEDB007D7184 /* Czlib.framework */,
-				D36AB7261F58DEDB007D7184 /* CgRPC.framework */,
-				D36AB7281F58DEDB007D7184 /* BoringSSL.framework */,
-				D36AB72A1F58DEDB007D7184 /* gRPC.framework */,
-				D36AB72C1F58DEDB007D7184 /* gRPCTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C7D90B7A20CFB93D0004C7CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D90BC420CFBE480004C7CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		C7D90B7C20CFB93D0004C7CA /* SwiftGRPCClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7D90B9A20CFB93E0004C7CA /* Build configuration list for PBXNativeTarget "SwiftGRPCClient" */;
+			buildPhases = (
+				C7D90B7820CFB93D0004C7CA /* Sources */,
+				C7D90B7920CFB93D0004C7CA /* Frameworks */,
+				C7D90B7A20CFB93D0004C7CA /* Headers */,
+				C7D90B7B20CFB93D0004C7CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7D90BBD20CFBCA70004C7CA /* PBXTargetDependency */,
+			);
+			name = SwiftGRPCClient;
+			productName = SwiftGRPCClient;
+			productReference = C7D90B7D20CFB93D0004C7CA /* SwiftGRPCClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C7D90BC620CFBE480004C7CA /* SwiftGRPCServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7D90BD020CFBE490004C7CA /* Build configuration list for PBXNativeTarget "SwiftGRPCServer" */;
+			buildPhases = (
+				C7D90BC220CFBE480004C7CA /* Sources */,
+				C7D90BC320CFBE480004C7CA /* Frameworks */,
+				C7D90BC420CFBE480004C7CA /* Headers */,
+				C7D90BC520CFBE480004C7CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7A70AE620D1205100F4697C /* PBXTargetDependency */,
+			);
+			name = SwiftGRPCServer;
+			productName = SwiftGRPCServer;
+			productReference = C7D90BC720CFBE480004C7CA /* SwiftGRPCServer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D35C9FA71D74B079000443CD /* Echo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D35C9FB51D74B079000443CD /* Build configuration list for PBXNativeTarget "Echo" */;
@@ -192,10 +532,12 @@
 				D35C9FA41D74B079000443CD /* Sources */,
 				D35C9FA51D74B079000443CD /* Frameworks */,
 				D35C9FA61D74B079000443CD /* Resources */,
+				C7D90BD320CFBE490004C7CA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C7D90BAB20CFBB0F0004C7CA /* PBXTargetDependency */,
 				D36AB7361F58DF02007D7184 /* PBXTargetDependency */,
 				D36AB7381F58DF02007D7184 /* PBXTargetDependency */,
 				D36AB73A1F58DF02007D7184 /* PBXTargetDependency */,
@@ -205,6 +547,7 @@
 				D315DEFE1EE8B2C7007670CE /* PBXTargetDependency */,
 				D315DF001EE8B2C7007670CE /* PBXTargetDependency */,
 				D315DEF81EE8B2C1007670CE /* PBXTargetDependency */,
+				C7D90BCD20CFBE490004C7CA /* PBXTargetDependency */,
 			);
 			name = Echo;
 			productName = Echo;
@@ -221,6 +564,15 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Google;
 				TargetAttributes = {
+					C7D90B7C20CFB93D0004C7CA = {
+						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Automatic;
+					};
+					C7D90BC620CFBE480004C7CA = {
+						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
 					D35C9FA71D74B079000443CD = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = EQHXZ8M8AV;
@@ -241,7 +593,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D36AB7191F58DEDB007D7184 /* Products */;
+					ProductGroup = C7D90AB720CD2BB50004C7CA /* Products */;
+					ProjectRef = C7D90AB620CD2BB50004C7CA /* SwiftGRPC.xcodeproj */;
 				},
 				{
 					ProductGroup = D315DEE01EE8B29A007670CE /* Products */;
@@ -251,11 +604,97 @@
 			projectRoot = "";
 			targets = (
 				D35C9FA71D74B079000443CD /* Echo */,
+				C7D90B7C20CFB93D0004C7CA /* SwiftGRPCClient */,
+				C7D90BC620CFBE480004C7CA /* SwiftGRPCServer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C7D90ACA20CD2BB60004C7CA /* BoringSSL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BoringSSL.framework;
+			remoteRef = C7D90AC920CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90ACC20CD2BB60004C7CA /* CgRPC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CgRPC.framework;
+			remoteRef = C7D90ACB20CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90ACE20CD2BB60004C7CA /* Commander.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Commander.framework;
+			remoteRef = C7D90ACD20CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90AD020CD2BB60004C7CA /* Echo */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = Echo;
+			remoteRef = C7D90ACF20CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90AD220CD2BB60004C7CA /* RootsEncoder */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = RootsEncoder;
+			remoteRef = C7D90AD120CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90AD420CD2BB60004C7CA /* Simple */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = Simple;
+			remoteRef = C7D90AD320CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90AD620CD2BB60004C7CA /* SwiftGRPC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftGRPC.framework;
+			remoteRef = C7D90AD520CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90AD820CD2BB60004C7CA /* SwiftGRPCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = SwiftGRPCTests.xctest;
+			remoteRef = C7D90AD720CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90ADA20CD2BB60004C7CA /* SwiftProtobuf.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftProtobuf.framework;
+			remoteRef = C7D90AD920CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90ADC20CD2BB60004C7CA /* SwiftProtobufPluginLibrary.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftProtobufPluginLibrary.framework;
+			remoteRef = C7D90ADB20CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90ADE20CD2BB60004C7CA /* protoc-gen-swift */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = "protoc-gen-swift";
+			remoteRef = C7D90ADD20CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C7D90AE020CD2BB60004C7CA /* protoc-gen-swiftgrpc */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = "protoc-gen-swiftgrpc";
+			remoteRef = C7D90ADF20CD2BB60004C7CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D315DEEC1EE8B29B007670CE /* SwiftProtobufTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -308,6 +747,21 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C7D90B7B20CFB93D0004C7CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7D90BD720CFC5680004C7CA /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D90BC520CFBE480004C7CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D35C9FA61D74B079000443CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,13 +776,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C7D90B7820CFB93D0004C7CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7D90B9B20CFB97B0004C7CA /* CompletionTask.swift in Sources */,
+				C7D90BA020CFB9970004C7CA /* Request.swift in Sources */,
+				C7D90B9E20CFB9810004C7CA /* StreamingDependency.swift in Sources */,
+				C7D90B9F20CFB9970004C7CA /* MessageQueue.swift in Sources */,
+				C7D90B9C20CFB97B0004C7CA /* Stream.swift in Sources */,
+				C7D90BA120CFB9970004C7CA /* CallType.swift in Sources */,
+				C7D90BD520CFC3F40004C7CA /* Result.swift in Sources */,
+				C7D90BA320CFB9C00004C7CA /* CallMethod.swift in Sources */,
+				C7D90B9D20CFB97B0004C7CA /* Session.swift in Sources */,
+				C7D90BA220CFB9970004C7CA /* ChannelType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D90BC220CFBE480004C7CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7BAE90F20D43EE400B6E48B /* UnaryStreaming.swift in Sources */,
+				C7BAE90D20D43E8100B6E48B /* ClientStreaming.swift in Sources */,
+				C731566720DB9BB8006A9696 /* BidirectionalStreaming.swift in Sources */,
+				C7BAE91320D4E9BA00B6E48B /* Responder.swift in Sources */,
+				C7D90BF020D01B6B0004C7CA /* Session.swift in Sources */,
+				C7BAE8F620D43E3F00B6E48B /* ServerStreaming.swift in Sources */,
+				C7BAE91120D43F2700B6E48B /* Stream.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D35C9FA41D74B079000443CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D90B5F20CD7B7E0004C7CA /* EchoClientRequest.swift in Sources */,
+				C7D90B5E20CD7B7E0004C7CA /* EchoServerRequest.swift in Sources */,
 				D35C9FC81D74B0C1000443CD /* EchoViewController.swift in Sources */,
+				C7D90BA520CFB9D20004C7CA /* EchoMethod.swift in Sources */,
+				C7BAE91520D4EBCE00B6E48B /* EchoServerResponder.swift in Sources */,
+				C7BAE91920D4EC3100B6E48B /* EchoProvider.swift in Sources */,
+				C7BAE91720D4EBFC00B6E48B /* EchoClientResponder.swift in Sources */,
 				D35C9FAC1D74B079000443CD /* AppDelegate.swift in Sources */,
-				D35358251E219980007FA223 /* EchoProvider.swift in Sources */,
+				D35358251E219980007FA223 /* _EchoProvider.swift in Sources */,
+				C7D90B5D20CD7B7E0004C7CA /* EchoBidirectionalRequest.swift in Sources */,
+				C731565020DB9AE0006A9696 /* EchoBidirectionalResponder.swift in Sources */,
+				C7D90B5C20CD7B7E0004C7CA /* EchoUnaryRequest.swift in Sources */,
+				C7BAE8F220D4280500B6E48B /* EchoUnaryResponder.swift in Sources */,
 				D35358201E219963007FA223 /* echo.grpc.swift in Sources */,
 				D35358211E219963007FA223 /* echo.pb.swift in Sources */,
 			);
@@ -337,6 +832,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C7A70AE620D1205100F4697C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftGRPC;
+			targetProxy = C7A70AE520D1205100F4697C /* PBXContainerItemProxy */;
+		};
+		C7D90BAB20CFBB0F0004C7CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7D90B7C20CFB93D0004C7CA /* SwiftGRPCClient */;
+			targetProxy = C7D90BAA20CFBB0F0004C7CA /* PBXContainerItemProxy */;
+		};
+		C7D90BBD20CFBCA70004C7CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftGRPC;
+			targetProxy = C7D90BBC20CFBCA70004C7CA /* PBXContainerItemProxy */;
+		};
+		C7D90BCD20CFBE490004C7CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7D90BC620CFBE480004C7CA /* SwiftGRPCServer */;
+			targetProxy = C7D90BCC20CFBE490004C7CA /* PBXContainerItemProxy */;
+		};
 		D315DEF81EE8B2C1007670CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftProtobuf_macOS;
@@ -361,22 +876,18 @@
 		D36AB7361F58DF02007D7184 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Czlib;
-			targetProxy = D36AB7351F58DF02007D7184 /* PBXContainerItemProxy */;
 		};
 		D36AB7381F58DF02007D7184 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CgRPC;
-			targetProxy = D36AB7371F58DF02007D7184 /* PBXContainerItemProxy */;
 		};
 		D36AB73A1F58DF02007D7184 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BoringSSL;
-			targetProxy = D36AB7391F58DF02007D7184 /* PBXContainerItemProxy */;
 		};
 		D36AB73C1F58DF02007D7184 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = gRPC;
-			targetProxy = D36AB73B1F58DF02007D7184 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -392,6 +903,158 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C7D90B8220CFB93E0004C7CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SwiftGRPCClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyoheiito.SwiftGRPCClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7D90B8320CFB93E0004C7CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SwiftGRPCClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyoheiito.SwiftGRPCClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7D90BD120CFBE490004C7CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SwiftGRPCServer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyoheiito.SwiftGRPCServer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7D90BD220CFBE490004C7CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SwiftGRPCServer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyoheiito.SwiftGRPCServer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D35C9FB31D74B079000443CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,6 +1097,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../../Sources/CgRPC/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -479,6 +1143,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../../Sources/CgRPC/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -489,6 +1154,7 @@
 		D35C9FB61D74B079000443CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = EQHXZ8M8AV;
@@ -503,6 +1169,7 @@
 		D35C9FB71D74B079000443CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = EQHXZ8M8AV;
@@ -517,6 +1184,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C7D90B9A20CFB93E0004C7CA /* Build configuration list for PBXNativeTarget "SwiftGRPCClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7D90B8220CFB93E0004C7CA /* Debug */,
+				C7D90B8320CFB93E0004C7CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7D90BD020CFBE490004C7CA /* Build configuration list for PBXNativeTarget "SwiftGRPCServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7D90BD120CFBE490004C7CA /* Debug */,
+				C7D90BD220CFBE490004C7CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D35C9FA31D74B079000443CD /* Build configuration list for PBXProject "Echo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

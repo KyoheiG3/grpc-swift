@@ -17,7 +17,7 @@ import Dispatch
 import Foundation
 import SwiftGRPC
 
-class EchoProvider: Echo_EchoProvider {
+class _EchoProvider: Echo_EchoProvider {
   // get returns requests as they were received.
   func get(request: Echo_EchoRequest, session _: Echo_EchoGetSession) throws -> Echo_EchoResponse {
     var response = Echo_EchoResponse()
