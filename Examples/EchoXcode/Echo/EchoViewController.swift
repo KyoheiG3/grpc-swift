@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 import AppKit
-import SwiftGRPC
+import SwiftGRPCClient
+fileprivate typealias Stream = SwiftGRPCClient.Stream
 
 class EchoViewController: NSViewController, NSTextFieldDelegate {
   @IBOutlet var messageField: NSTextField!
@@ -25,11 +26,11 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
   @IBOutlet var callSelectButton: NSSegmentedControl!
   @IBOutlet var closeButton: NSButton!
 
-  private var service: Echo_EchoServiceClient?
+  private var session: Session?
 
-  private var expandCall: Echo_EchoExpandCall?
-  private var collectCall: Echo_EchoCollectCall?
-  private var updateCall: Echo_EchoUpdateCall?
+  private var serverStream: Stream<EchoServerRequest>?
+  private var clientStream: Stream<EchoClientRequest>?
+  private var bidiStream: Stream<EchoBidirectionalRequest>?
 
   private var nowStreaming = false
 
@@ -58,7 +59,7 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
       }
     }
     // invalidate the service
-    service = nil
+    session = nil
   }
 
   @IBAction func buttonValueChanged(sender _: NSSegmentedControl) {
@@ -101,176 +102,126 @@ class EchoViewController: NSViewController, NSTextFieldDelegate {
     }
   }
 
-  func prepareService(address: String) {
-    if service != nil {
-      return
+  func prepareService(address: String) -> Session {
+    if let session = self.session {
+      return session
     }
+    let session: Session
     if TLSButton.intValue == 0 {
-      service = Echo_EchoServiceClient(address: address, secure: false)
+      session = Session(address: address)
     } else {
       let certificateURL = Bundle.main.url(forResource: "ssl",
                                            withExtension: "crt")!
       let certificates = try! String(contentsOf: certificateURL)
-      service = Echo_EchoServiceClient(address: address, certificates: certificates)
+      session = Session(address: address, certificates: certificates)
     }
-    if let service = service {
-      service.host = "example.com" // sample override
-      service.metadata = try! Metadata([
-        "x-goog-api-key": "YOUR_API_KEY",
-        "x-ios-bundle-identifier": Bundle.main.bundleIdentifier!
-      ])
-    }
+//    if let service = service {
+//      service.host = "example.com" // sample override
+//      service.metadata = try! Metadata([
+//        "x-goog-api-key": "YOUR_API_KEY",
+//        "x-ios-bundle-identifier": Bundle.main.bundleIdentifier!
+//      ])
+//    }
+    self.session = session
+    return session
   }
 
   func callServer(address: String) throws {
-    prepareService(address: address)
-    guard let service = service else {
-      return
-    }
+    let session = prepareService(address: address)
     if callSelectButton.selectedSegment == 0 {
       // NONSTREAMING
-      var requestMessage = Echo_EchoRequest()
-      requestMessage.text = messageField.stringValue
-      displayMessageSent(requestMessage.text)
-      _ = try service.get(requestMessage) { responseMessage, callResult in
-        if let responseMessage = responseMessage {
-          self.displayMessageReceived(responseMessage.text)
-        } else {
-          self.displayMessageReceived("No message received. \(callResult)")
+      let unary = EchoUnaryRequest(text: messageField.stringValue)
+      displayMessageSent(unary.text)
+      session.stream(with: unary).data { result in
+        switch result {
+        case .success(let response):
+          self.displayMessageReceived(response.text)
+        case .failure(let error):
+          self.displayMessageReceived("No message received. \(error)")
         }
       }
     } else if callSelectButton.selectedSegment == 1 {
       // STREAMING EXPAND
       if !nowStreaming {
-        do {
-          var requestMessage = Echo_EchoRequest()
-          requestMessage.text = messageField.stringValue
-          expandCall = try service.expand(requestMessage) { call in
-            print("Completed expand \(call)")
+        let server = EchoServerRequest(text: messageField.stringValue)
+        displayMessageSent(server.text)
+        serverStream = session.stream(with: server)
+        serverStream?.receive { result in
+          switch result {
+          case .success(let response):
+            if let message = response?.text {
+              self.displayMessageReceived(message)
+            }
+          case .failure(let error):
+            self.displayMessageReceived("No message received. \(error)")
           }
-          try receiveExpandMessages()
-          displayMessageSent(requestMessage.text)
-        } catch {
-          self.displayMessageReceived("No message received. \(error)")
         }
       }
     } else if callSelectButton.selectedSegment == 2 {
       // STREAMING COLLECT
-      do {
-        if !nowStreaming {
-          let collectCall = try service.collect { call in
-            print("Completed collect \(call)")
-          }
-          self.collectCall = collectCall
-          nowStreaming = true
-          DispatchQueue.main.async {
-            self.closeButton.isEnabled = true
+      if !nowStreaming {
+        nowStreaming = true
+        let client = EchoClientRequest()
+        displayMessageSent(messageField.stringValue)
+        clientStream = session.stream(with: client)
+        clientStream?.send(messageField.stringValue) { result in
+          if case .failure(let error) = result {
+            self.displayMessageReceived("No message received. \(error)")
           }
         }
-        try sendCollectMessage()
-      } catch {
-        self.displayMessageReceived("No message received. \(error)")
+        DispatchQueue.main.async {
+          self.closeButton.isEnabled = true
+        }
       }
     } else if callSelectButton.selectedSegment == 3 {
       // STREAMING UPDATE
-      do {
-        if !nowStreaming {
-          let updateCall = try service.update { call in
-            print("Completed update \(call)")
-          }
-          self.updateCall = updateCall
-          nowStreaming = true
-          try receiveUpdateMessages()
-          DispatchQueue.main.async {
-            self.closeButton.isEnabled = true
-          }
-        }
-        try sendUpdateMessage()
-      } catch {
-        self.displayMessageReceived("No message received. \(error)")
-      }
-    }
-  }
-
-  func receiveExpandMessages() throws {
-    guard let expandCall = expandCall else {
-      return
-    }
-    try expandCall.receive { response in
-        switch response {
-        case .result(let responseMessage):
-            if let message = responseMessage {
-                self.displayMessageReceived(message.text)
-                try! self.receiveExpandMessages()
-            }
-        case .error(let error):
-            self.displayMessageReceived("No message received. \(error)")
-        }
-    }
-  }
-
-  func sendCollectMessage() throws {
-    if let collectCall = collectCall {
-      var requestMessage = Echo_EchoRequest()
-      requestMessage.text = messageField.stringValue
-      displayMessageSent(requestMessage.text)
-      try collectCall.send(requestMessage) { error in print(error) }
-    }
-  }
-
-  func sendUpdateMessage() throws {
-    if let updateCall = updateCall {
-      var requestMessage = Echo_EchoRequest()
-      requestMessage.text = messageField.stringValue
-      displayMessageSent(requestMessage.text)
-      try updateCall.send(requestMessage) { error in print(error) }
-    }
-  }
-
-  func receiveUpdateMessages() throws {
-    guard let updateCall = updateCall else {
-      return
-    }
-    try updateCall.receive { response in
-        switch response {
-        case .result(let responseMessage):
-            if let message = responseMessage {
-                self.displayMessageReceived(message.text)
-                try! self.receiveUpdateMessages()
+      if !nowStreaming {
+        nowStreaming = true
+        let bidi = EchoBidirectionalRequest()
+        bidiStream = session.stream(with: bidi)
+        bidiStream?.receive { result in
+          switch result {
+          case .success(let response):
+            if let message = response?.text {
+              self.displayMessageReceived(message)
             } else {
-                self.displayMessageReceived("Done.")
+              self.displayMessageReceived("Done.")
             }
-        case .error(let error):
+          case .failure(let error):
             self.displayMessageReceived("No message received. \(error)")
+          }
         }
+        DispatchQueue.main.async {
+          self.closeButton.isEnabled = true
+        }
+        bidiStream?.send(messageField.stringValue) { result in
+          if case .failure(let error) = result {
+            self.displayMessageReceived("No message received. \(error)")
+          }
+        }
+      }
     }
   }
 
   func sendClose() throws {
-    if let updateCall = updateCall {
-      try updateCall.closeSend {
-        self.updateCall = nil
-        self.nowStreaming = false
-        DispatchQueue.main.async {
-          self.closeButton.isEnabled = false
-        }
+    bidiStream?.close { _ in
+      self.bidiStream = nil
+      self.nowStreaming = false
+      DispatchQueue.main.async {
+        self.closeButton.isEnabled = false
       }
     }
-    if let collectCall = collectCall {
-      do {
-        try collectCall.closeAndReceive { response in
-            switch response {
-            case .result(let responseMessage):
-                self.displayMessageReceived(responseMessage.text)
-            case .error(let error):
-                self.displayMessageReceived("No message received. \(error)")
-            }
-          self.collectCall = nil
-          self.nowStreaming = false
-          DispatchQueue.main.async {
-            self.closeButton.isEnabled = false
-          }
-        }
+    clientStream?.closeAndReceive { result in
+      switch result {
+      case .success(let response):
+        self.displayMessageReceived(response.text)
+      case .failure(let error):
+        self.displayMessageReceived("No message received. \(error)")
+      }
+      self.clientStream = nil
+      self.nowStreaming = false
+      DispatchQueue.main.async {
+        self.closeButton.isEnabled = false
       }
     }
   }

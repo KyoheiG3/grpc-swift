@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 import Cocoa
+import SwiftGRPC
+import SwiftGRPCServer
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -23,9 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var insecureServer: ServiceServer!
   var secureServer: ServiceServer!
 
+  var echoSession: Session?
   func applicationDidFinishLaunching(_: Notification) {
+    echoSession = Session(address: "localhost:8888", provider: EchoProvider())
+    echoSession?.start()
     // instantiate our custom-written application handler
-    echoProvider = EchoProvider()
+    echoProvider = _EchoProvider()
 
 	// create and start a server for handling insecure requests
 	insecureServer = ServiceServer(address: "localhost:8081",
