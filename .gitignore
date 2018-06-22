@@ -10,5 +10,5 @@ third_party/**
 /Echo
 /test.out
 /echo.pid
-/SwiftGRPC.xcodeproj
+#/SwiftGRPC.xcodeproj
 Package.resolved
