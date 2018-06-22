@@ -18,7 +18,7 @@
 #endif
 
 /// A collection of gRPC operations
-class OperationGroup {
+public class OperationGroup {
   /// A mutex for synchronizing tag generation
   static let tagMutex = Mutex()
 
@@ -83,7 +83,7 @@ class OperationGroup {
   /// Initializes an OperationGroup representation
   ///
   /// - Parameter operations: an array of operations
-  init(call: Call,
+  public init(call: Call,
        operations: [Operation],
        completion: ((OperationGroup) -> Void)? = nil) throws {
     self.call = call

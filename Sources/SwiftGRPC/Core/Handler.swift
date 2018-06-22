@@ -24,7 +24,7 @@ public class Handler {
   fileprivate let underlyingHandler: UnsafeMutableRawPointer
 
   /// Completion queue for handler response operations
-  let completionQueue: CompletionQueue
+  public let completionQueue: CompletionQueue
 
   /// Metadata received with the request
   public let requestMetadata: Metadata

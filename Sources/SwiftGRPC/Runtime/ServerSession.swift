@@ -43,7 +43,7 @@ open class ServerSessionBase: ServerSession {
     handler.shutdown()
   }
   
-  func sendInitialMetadataAndWait() throws {
+  public func sendInitialMetadataAndWait() throws {
     let sendMetadataSignal = DispatchSemaphore(value: 0)
     var success = false
     try handler.sendMetadata(initialMetadata: initialMetadata) {
@@ -57,7 +57,7 @@ open class ServerSessionBase: ServerSession {
     }
   }
   
-  func receiveRequestAndWait() throws -> Data {
+  public func receiveRequestAndWait() throws -> Data {
     let sendMetadataSignal = DispatchSemaphore(value: 0)
     var requestData: Data?
     try handler.receiveMessage(initialMetadata: initialMetadata) {

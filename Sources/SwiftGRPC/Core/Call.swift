@@ -83,7 +83,7 @@ public class Call {
   /// - Parameter operations: group of operations to be performed
   /// - Returns: the result of initiating the call
   /// - Throws: `CallError` if fails to call.
-  func perform(_ operations: OperationGroup) throws {
+  public func perform(_ operations: OperationGroup) throws {
     try completionQueue.register(operations) {
       Call.callMutex.lock()
       // We need to do the perform *inside* the `completionQueue.register` call, to ensure that the queue can't get

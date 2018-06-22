@@ -54,7 +54,7 @@ struct CompletionQueueEvent {
 }
 
 /// A gRPC Completion Queue
-class CompletionQueue {
+public class CompletionQueue {
   /// Optional user-provided name for the queue
   let name: String?
 

@@ -17,7 +17,7 @@
   import CgRPC
 #endif
 
-enum Operation {
+public enum Operation {
   case sendInitialMetadata(Metadata)
   case sendMessage(ByteBuffer)
   case sendCloseFromClient

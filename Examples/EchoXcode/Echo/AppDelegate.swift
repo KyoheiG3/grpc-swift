@@ -29,21 +29,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_: Notification) {
     echoSession = Session(address: "localhost:8888", provider: EchoProvider())
     echoSession?.start()
-    // instantiate our custom-written application handler
-    echoProvider = _EchoProvider()
-
-	// create and start a server for handling insecure requests
-	insecureServer = ServiceServer(address: "localhost:8081",
-								   serviceProviders: [echoProvider])
-	insecureServer.start()
-	
-	// create and start a server for handling secure requests
-	let certificateURL = Bundle.main.url(forResource: "ssl", withExtension: "crt")!
-	let keyURL = Bundle.main.url(forResource: "ssl", withExtension: "key")!
-	secureServer = ServiceServer(address: "localhost:8443",
-								 certificateURL: certificateURL,
-								 keyURL: keyURL,
-								 serviceProviders: [echoProvider])
-	secureServer.start()
+//    // instantiate our custom-written application handler
+//    echoProvider = _EchoProvider()
+//
+//    // create and start a server for handling insecure requests
+//    insecureServer = ServiceServer(address: "localhost:8081",
+//                                   serviceProviders: [echoProvider])
+//    insecureServer.start()
+//    
+//    // create and start a server for handling secure requests
+//    let certificateURL = Bundle.main.url(forResource: "ssl", withExtension: "crt")!
+//    let keyURL = Bundle.main.url(forResource: "ssl", withExtension: "key")!
+//    secureServer = ServiceServer(address: "localhost:8443",
+//                                 certificateURL: certificateURL,
+//                                 keyURL: keyURL,
+//                                 serviceProviders: [echoProvider])
+//    secureServer.start()
   }
 }
